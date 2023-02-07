@@ -18,6 +18,8 @@ const lowLevelClientHttpOptions = {
     maxSockets: maxConcurrentTransactions
   })
 };
+const nome_tabela = "Roubados"
+const nome_livro_rasao = "Alma"
 const qldbDriver = new QldbDriver('AlmanaqueFake', awsConfig, lowLevelClientHttpOptions, maxConcurrentTransactions, retryConfig);
 AWS.config.update(awsConfig);
 
@@ -85,18 +87,5 @@ function updateTable(qldbDriver,tableName,id,fildName,value){
   })
 }
 
-// funfa
 
-
-// qldbDriver.executeLambda(async (txn)=>{
-//   txn.execute(`insert into batatas {'id': 3, 'valor': 'não é teste'}`).then(()=>{console.log("Ganhamo")}).catch((err)=>{console.log('perdemo por: ',err)})
-// })
-
-
-// createLedger(qldb,"AlmanaqueFake")
-// createTable(qldbDriver,"Roubados")
-const nome_tabela = "Roubados"
-// insertElementInTabel(qldbDriver,nome_tabela,{ id:2, valor:'Almanaque é muito melhor' })
-// selectTable(qldbDriver,nome_tabela)
-// updateTable(qldbDriver,nome_tabela,1,"valor","pãozinho de batata")
 selectTableHistory(qldbDriver,nome_tabela)
